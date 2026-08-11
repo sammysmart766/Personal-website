@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <div id="title">
+      <h1>WELCOME TO SAMUEL WEBPAGE</h1>
+      <p>
+        My name is Akinbola Oluwadamilare Samuel and you are welcome to my
+        website
+      </p>
+      <button onclick="MakeDreamComeTrue()">Make Samuel Dream Come True</button>
+    </div>
+  </body>
+</html>
+
+<style>
+      body{
+          background-image: url(https://imgs.search.brave.com/f59D5Yx2V-Tr1MGzsilseBCkaUT4td2_UxquceYlP70/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9iZWF1/dGlmdWwtcnVyYWwt/bGFuZHNjYXBlLW1v/dW50YWlucy1kYXkt/bWVldC1uaWdodC1z/dW4tbW9vbi1vdmVy/LXNjZW5pYy12aWV3/LXRyZWVzLWdyYXNz/eS1zbG9wZS1ncmVl/bi1hbHBpbmUtNDQ2/Mzc0NTU4LmpwZw);
+          background-size: cover;
+      }
+  h1{
+      color:blue
+  }
+  #title{\
+      width: 100%;
+      text-align: center;
+      margin-top: 50px;
+  }
+  button:hover{
+      background-color:red;
+      cursor: pointer;
+      font-size: 20px;
+  }
+</style>
+
+<script>
+  function MakeDreamComeTrue() {
+    document.body.style.background =
+      "url('https://imgs.search.brave.com/iEURIaU1dToodC1CvtJOvpX8Fb__jC4Laz6EVcyIzTM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naWZk/Yi5jb20vaW1hZ2Vz/L3RodW1ibmFpbC9h/dG9taWMtYm9tYi1l/eHBsb3Npb24tZnlz/aTVub2F5OTlldnpq/My5naWY.gif')";
+    document.getElementById("title").style.visibility = "hidden";
+    document.body.style.backgroundSize = "cover";
+  }
+</script>
