@@ -1,14 +1,21 @@
-h1 {
-  color: blue;
+:root {
+  --titleSectionPrimaryColor: white;
 }
 #title {
+  color: var(--titleSectionPrimaryColor);
   padding-top: 200px;
   text-align: center;
   background-image: url("../Images/plufow-le-studio-lRcPeX_5zUQ-unsplash.jpg");
   background-position: center top;
 }
-button:hover {
+.title-section-button {
+  color: var(--titleSectionPrimaryColor);
+  border: solid var(--titleSectionPrimaryColor) 1px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  background-color: transparent;
+}
+.title-section-button:hover {
   background-color: red;
   cursor: pointer;
-  font-size: 20px;
 }
