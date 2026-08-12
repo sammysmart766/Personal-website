@@ -4,6 +4,8 @@ h1 {
 #title {
   padding-top: 200px;
   text-align: center;
+  background-image: url("../Images/plufow-le-studio-lRcPeX_5zUQ-unsplash.jpg");
+  background-position: center top;
 }
 button:hover {
   background-color: red;
