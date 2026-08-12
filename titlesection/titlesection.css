@@ -9,6 +9,12 @@
   background-image: url("../Images/plufow-le-studio-lRcPeX_5zUQ-unsplash.jpg");
   background-position: center top;
 }
+.title-section-header {
+  margin-bottom: -5px;
+}
+.title-section-subtitle {
+  margin-bottom: 40px;
+}
 .title-section-button {
   color: var(--titleSectionPrimaryColor);
   border: solid var(--titleSectionPrimaryColor) 1px;
