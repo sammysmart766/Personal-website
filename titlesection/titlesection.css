@@ -2,6 +2,7 @@ h1 {
   color: blue;
 }
 #title {
+  padding-top: 200px;
   text-align: center;
 }
 button:hover {
