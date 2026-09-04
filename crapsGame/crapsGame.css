@@ -29,7 +29,6 @@
   /* This prevents the box from breaking on narrow screens like the iPhone or Z Fold */
   width: min(700px, 80vw);
   height: min(500px, 57vw);
-
   border: solid white 2px;
   margin: 60px auto;
   box-sizing: border-box;
@@ -40,4 +39,31 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-position: center top;
+}
+
+.craps-registration-pane {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.craps-registration-input {
+  background: none;
+  border: none;
+  border-bottom: solid white 2px;
+  margin-top: 25px;
+  color: white;
+  text-align: center;
+}
+
+.craps-registration-input:focus {
+  outline: none;
+}
+
+.craps-registration-continue {
+  margin-top: 25px;
+}
+
+.craps-registration-continue:hover {
+  cursor: pointer;
+  font-weight: bold;
 }

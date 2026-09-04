@@ -68,7 +68,20 @@
     </div>
     <div class="main-section" id="craps-game">
       <h1 class="craps-game-title">Craps Casino Game</h1>
-      <div class="craps-game-container"></div>
+      <div class="craps-game-container">
+        <div class="craps-registration-pane">
+          <div>Enter username to begin</div>
+          <div>
+            <input class="craps-registration-input" id="craps-user-input" />
+          </div>
+          <div
+            class="craps-registration-continue"
+            onclick="registercrapsgame()"
+          >
+            continue
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
@@ -111,5 +124,8 @@
       "url('https://imgs.search.brave.com/iEURIaU1dToodC1CvtJOvpX8Fb__jC4Laz6EVcyIzTM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naWZk/Yi5jb20vaW1hZ2Vz/L3RodW1ibmFpbC9h/dG9taWMtYm9tYi1l/eHBsb3Npb24tZnlz/aTVub2F5OTlldnpq/My5naWY.gif')";
     document.getElementById("title").style.visibility = "hidden";
     document.body.style.backgroundSize = "cover";
+  }
+  function registercrapsgame() {
+    let crapsusername = document.getElementById("craps-user-input").value;
   }
 </script>
