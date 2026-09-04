@@ -27,8 +27,8 @@
 
 .craps-game-container {
   /* This prevents the box from breaking on narrow screens like the iPhone or Z Fold */
-  width: min(700px, 80vw);
-  height: min(500px, 57vw);
+  width: min(700px, 90vw);
+  min-height: 400px;
   border: solid white 2px;
   margin: 60px auto;
   box-sizing: border-box;
@@ -41,7 +41,7 @@
   background-position: center top;
 }
 
-.craps-registration-pane {
+#craps-registration-pane {
   text-align: center;
   margin-top: 20px;
 }
@@ -66,4 +66,8 @@
 .craps-registration-continue:hover {
   cursor: pointer;
   font-weight: bold;
+}
+
+#craps-main-section {
+  display: none;
 }
