@@ -1,0 +1,43 @@
+#craps-game {
+  background-image: url("../Images/vegas.jpg");
+  /* Forces the image to anchor exactly in the middle so left and right sides crop completely equally */
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #111;
+  color: white;
+  min-height: 100vh;
+  width: 100%;
+
+  /* Flexbox alignment tool */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.craps-game-title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.craps-game-container {
+  /* This prevents the box from breaking on narrow screens like the iPhone or Z Fold */
+  width: min(700px, 80vw);
+  height: min(500px, 57vw);
+
+  border: solid white 2px;
+  margin: 60px auto;
+  box-sizing: border-box;
+
+  /* Craps table background rules */
+  background-image: url("../Images/crapstable.webp");
+  background-size: 100% 100%; /* Forces the table layout to fit the box precisely without side cropping */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
