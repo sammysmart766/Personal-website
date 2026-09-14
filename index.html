@@ -1,8 +1,13 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samuel Dammy - Portfolio</title>
     <link rel="stylesheet" href="./titlesection/titlesection.css" />
     <link rel="stylesheet" href="./aboutmesection/aboutmesection.css" />
     <link rel="stylesheet" href="./crapsGame/crapsGame.css" />
+    <link rel="stylesheet" href="./crapsGame/utils.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
@@ -13,6 +18,7 @@
     />
   </head>
   <body>
+    <!-- Title Section -->
     <div class="main-section" id="title">
       <h1 class="title-section-header">Samuel Dammy</h1>
       <p class="title-section-subtitle">
@@ -22,23 +28,26 @@
         View my work.
       </button>
     </div>
+
+    <!-- About Me Section -->
     <div class="misc-section" id="aboutme">
       <div class="text-block-container">
         <h1>About Me</h1>
         <p class="aboutme-section-description">
-          I am a student and aspiring Full-Stack Software Engineer currently
-          training at Simvo Africa. My journey into tech stems from a deep
-          curiosity about how the web works, which has quickly evolved into a
-          passion for building clean, user-friendly digital
-          experiences.Currently, I specialize in the foundational pillars of
-          front-end development: HTML5, CSS3, and JavaScript. Balancing my
-          academic studies with intensive coding has taught me strict
-          discipline, sharp problem-solving skills, and the ability to learn
-          complex technical concepts quickly.I am deeply committed to honing my
-          craft, solving logical challenges, and consistently improving my
-          technical skills. I am eager to connect, collaborate, and grow
-          alongside fellow developers in the tech ecosystem while working toward
-          building impactful digital solutions.
+          I am an ambitious Software Engineering student and an aspiring
+          Full-Stack Developer currently undergoing intensive training at Simvo
+          Africa. My deep curiosity about how the modern web functions quickly
+          transformed into a passion for engineering clean, highly responsive,
+          and user-focused digital experiences. Currently, I am mastering the
+          core foundational pillars of front-end engineering: HTML5, CSS3, and
+          JavaScript, while preparing for advanced back-end architectures.
+          Balancing rigorous academic computer studies with technical coding
+          bootcamps has built my strict self-discipline, razor-sharp logical
+          problem-solving abilities, and the capacity to pick up complex
+          framework systems rapidly. I am fully committed to refining my
+          engineering skills, taking on deep programming challenges, and
+          actively collaborating within the tech ecosystem to build impactful
+          digital solutions that solve real-world problems.
         </p>
         <div class="aboutme-icons">
           <a
@@ -50,14 +59,15 @@
           <a
             href="https://web.facebook.com/profile.php?id=61593327967301"
             target="_blank"
-            ><i class="aboutme-icon fa-brands fa-square-facebook"></i
-          ></a>
-          <a href="mailto:sammysmart766@gmail.com"
-            ><i class="aboutme-icon fa-regular fa-envelope"></i
-          ></a>
-          <a href="https://wa.me/2348101699738" target="_blank"
-            ><i class="aboutme-icon fa-brands fa-whatsapp"></i
-          ></a>
+          >
+            <i class="aboutme-icon fa-brands fa-square-facebook"></i>
+          </a>
+          <a href="mailto:sammysmart766@gmail.com">
+            <i class="aboutme-icon fa-regular fa-envelope"></i>
+          </a>
+          <a href="https://wa.me/2348101699738" target="_blank">
+            <i class="aboutme-icon fa-brands fa-whatsapp"></i>
+          </a>
         </div>
         <div class="aboutme-download-link">
           <a href="./aboutmesection/Samuel_CV.pdf" download target="_blank"
@@ -66,13 +76,22 @@
         </div>
       </div>
     </div>
+
+    <!-- Upgraded Craps Casino Section -->
     <div class="main-section" id="craps-game">
       <h1 class="craps-game-title">Craps Casino Game</h1>
       <div class="craps-game-container">
+        <!-- Registration Window -->
         <div id="craps-registration-pane">
           <div>Enter username to begin</div>
           <div>
-            <input class="craps-registration-input" id="craps-user-input" />
+            <!-- 🌟 Added spellcheck="false" to block the red squiggly lines entirely -->
+            <input
+              class="craps-registration-input"
+              id="craps-user-input"
+              autocomplete="off"
+              spellcheck="false"
+            />
           </div>
           <div
             class="craps-registration-continue"
@@ -81,50 +100,94 @@
             continue
           </div>
         </div>
-        <div id="craps-main-section">MAIN SECTION HERE</div>
+
+        <!-- Main Dynamic Game Dashboard Arena -->
+        <div id="craps-main-section">
+          <div class="user-stats-bar">
+            <span>Player: <span id="display-username">---</span></span>
+            <span>Wallet: <span id="display-wallet">$1000</span></span>
+          </div>
+
+          <!-- Target container for the 3D Roll-A-Die system animation canvas -->
+          <div id="dice-animation-area"></div>
+
+          <!-- Selection Controls for Bet Type and Sizing Options -->
+          <div class="game-control-panel">
+            <div class="bet-type-selection">
+              <label
+                ><input type="radio" name="bet-type" value="EVEN" checked />
+                EVEN</label
+              >
+              <label
+                ><input type="radio" name="bet-type" value="ODD" /> ODD</label
+              >
+            </div>
+
+            <!-- 🌟 UNIFIED BETTING BUTTONS: Equal text lengths keep the boxes completely identical -->
+            <div class="bet-amount-selection">
+              <button onclick="adjustBet(-100)">- $100</button>
+              <span id="display-bet-amount">Current Bet: $100</span>
+              <button onclick="adjustBet(100)">+ $100</button>
+            </div>
+
+            <div class="action-trigger-row">
+              <button id="roll-action-btn" onclick="executeGameRound()">
+                Roll Dice 🎲
+              </button>
+              <button id="exit-action-btn" onclick="exitCasinoSession()">
+                Exit Game 🚪
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Text Messaging Zone for Round Feedback announcements -->
+          <div id="round-outcome-message">Select your options and roll!</div>
+        </div>
       </div>
     </div>
+
+    <!-- Global Styles Injection Stylesheet Overrides -->
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Armata;
+      }
+      html,
+      body {
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+      }
+      .main-section {
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        padding: 25px;
+      }
+      .misc-section {
+        width: 100vw;
+        padding: 120px 25px;
+      }
+      .text-block-container {
+        width: 65%;
+        margin: 0 auto;
+      }
+      @media screen and (max-width: 500px) {
+        .text-block-container {
+          width: 100%;
+        }
+      }
+    </style>
+
+    <!-- Script Import Execution Chains (Order Defends Dependencies) -->
+    <script src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js "></script>
+    <script src="./crapsGame/crapsGame.js"></script>
+    <script>
+      function MakeDreamComeTrue() {
+        document.body.style.background = "url('https://brave.com')";
+        document.getElementById("title").style.visibility = "hidden";
+        document.body.style.backgroundSize = "cover";
+      }
+    </script>
   </body>
 </html>
-
-<style>
-  * {
-    box-sizing: border-box;
-    font-family: Armata;
-  }
-  html,
-  body {
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .main-section {
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    padding: 25px;
-  }
-  .misc-section {
-    width: 100vw;
-    padding: 120px 25px;
-  }
-  .text-block-container {
-    width: 65%;
-    margin: 0 auto;
-  }
-  @media screen and (max-width: 500px) {
-    .text-block-container {
-      width: 100%;
-    }
-  }
-</style>
-
-<script src="./crapsGame/crapsGame.js"></script>
-<script>
-  function MakeDreamComeTrue() {
-    document.body.style.background =
-      "url('https://imgs.search.brave.com/iEURIaU1dToodC1CvtJOvpX8Fb__jC4Laz6EVcyIzTM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naWZk/Yi5jb20vaW1hZ2Vz/L3RodW1ibmFpbC9h/dG9taWMtYm9tYi1l/eHBsb3Npb24tZnlz/aTVub2F5OTlldnpq/My5naWY.gif')";
-    document.getElementById("title").style.visibility = "hidden";
-    document.body.style.backgroundSize = "cover";
-  }
-</script>
