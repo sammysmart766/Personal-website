@@ -1,0 +1,454 @@
+/* =========================================================
+   LAS VEGAS GAME ENVIRONMENT
+   ========================================================= */
+
+#craps-game {
+  width: 100%;
+  min-height: 100vh;
+
+  /* Las Vegas night background OUTSIDE the game container */
+  background-image: url("../Images/vegas.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: clamp(20px, 4vw, 50px);
+}
+
+/* =========================================================
+   CRAPS GAME CONTAINER
+   ========================================================= */
+
+.craps-game-container {
+  position: relative;
+
+  width: min(700px, 92vw);
+
+  /* Keeps the container proportional on different screens */
+  aspect-ratio: 1.4 / 1;
+
+  border: 3px solid #ffd700;
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  /* Craps table background INSIDE the container */
+  background-image: url("../Images/crapstable.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75);
+
+  margin: 20px auto;
+}
+
+/* =========================================================
+   REGISTRATION SCREEN
+   ========================================================= */
+
+#craps-registration-pane {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+  padding: 25px;
+
+  z-index: 2;
+
+  text-align: center;
+}
+
+/* Registration text */
+
+#craps-registration-pane div {
+  width: 100%;
+
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+
+  text-align: center;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Username input */
+
+.craps-registration-input {
+  width: min(350px, 80%);
+
+  background: transparent;
+
+  border: none;
+  border-bottom: 2px solid white;
+
+  color: white;
+
+  text-align: center;
+
+  font-size: clamp(1rem, 3vw, 1.3rem);
+
+  padding: 8px;
+
+  outline: none;
+}
+
+.craps-registration-input:focus {
+  border-bottom-color: #ffd700;
+}
+
+/* Continue button */
+
+.craps-registration-continue {
+  cursor: pointer;
+
+  font-size: clamp(1rem, 3vw, 1.2rem);
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.craps-registration-continue:hover {
+  color: #ffd700;
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   MAIN GAME
+   ========================================================= */
+
+#craps-main-section {
+  /* Hidden until a valid username is entered */
+  display: none;
+
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: clamp(10px, 2vw, 20px);
+
+  /*
+     The parent container already has the
+     craps table background, so we don't
+     need another background image here.
+  */
+
+  background: transparent;
+}
+
+/* =========================================================
+   PLAYER INFORMATION
+   ========================================================= */
+
+.user-stats-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  padding: 10px 20px;
+
+  border-radius: 6px;
+
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+
+  border-bottom: 2px solid #ffd700;
+}
+
+/* =========================================================
+   DICE AREA
+   ========================================================= */
+
+#dice-animation-area {
+  width: 100%;
+  height: 120px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 20px 0;
+}
+
+/* =========================================================
+   GAME CONTROL PANEL
+   ========================================================= */
+
+.game-control-panel {
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  padding: 15px;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+/* Bet type */
+
+.bet-type-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: clamp(15px, 5vw, 40px);
+
+  flex-wrap: wrap;
+}
+
+.bet-type-selection label {
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+/* =========================================================
+   BET AMOUNT
+   ========================================================= */
+
+.bet-amount-selection {
+  margin: 15px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.bet-amount-selection button {
+  background: #ffd700;
+  color: black;
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 7px 12px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bet-amount-selection button:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+#display-bet-amount {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   ROLL / EXIT BUTTONS
+   ========================================================= */
+
+.action-trigger-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  width: 100%;
+
+  margin-top: 5px;
+
+  flex-wrap: wrap;
+}
+
+#roll-action-btn,
+#exit-action-btn {
+  color: white;
+
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+
+  font-weight: bold;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 12px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+#roll-action-btn {
+  background: #5cb85c;
+
+  width: min(55%, 350px);
+
+  min-width: 120px;
+}
+
+#exit-action-btn {
+  background: #d9534f;
+
+  width: min(35%, 220px);
+
+  min-width: 90px;
+}
+
+#roll-action-btn:hover {
+  background: #4cae4c;
+  transform: translateY(-2px);
+}
+
+#exit-action-btn:hover {
+  background: #c9302c;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   ROUND RESULT MESSAGE
+   ========================================================= */
+
+#round-outcome-message {
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 8px;
+
+  background: rgba(0, 0, 0, 0.9);
+
+  text-align: center;
+
+  border-radius: 4px;
+
+  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+
+  color: #ffd700;
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+  #craps-game {
+    padding: 15px 10px;
+  }
+
+  .craps-game-container {
+    width: calc(100% - 20px);
+    max-width: 700px;
+    margin: 20px auto;
+  }
+
+  .craps-game-container.game-active {
+    aspect-ratio: auto;
+    min-height: 390px;
+  }
+
+  #craps-main-section {
+    padding: 10px;
+  }
+
+  .user-stats-bar {
+    padding: 8px 10px;
+  }
+
+  #dice-animation-area {
+    height: 90px;
+    margin: 10px 0;
+  }
+
+  .game-control-panel {
+    padding: 10px;
+  }
+
+  .bet-amount-selection {
+    gap: 8px;
+  }
+
+  .action-trigger-row {
+    gap: 8px;
+  }
+
+  #roll-action-btn,
+  #exit-action-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   TABLETS / OPEN FOLDABLES
+   ========================================================= */
+
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  .craps-game-container {
+    width: min(720px, 90vw);
+  }
+
+  #craps-main-section {
+    padding: 20px;
+  }
+
+  #dice-animation-area {
+    height: 150px;
+  }
+}
+
+/* =========================================================
+   LARGE SCREENS
+   ========================================================= */
+
+@media screen and (min-width: 1001px) {
+  .craps-game-container {
+    width: min(750px, 80vw);
+  }
+
+  #dice-animation-area {
+    height: 160px;
+  }
+}
