@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Armata&display=swap"
     />
   </head>
-  <body>
+  <body onload="getNewRandomQuote()">
     <!-- Title Section -->
     <div class="main-section" id="title">
       <h1 class="title-section-header">Samuel Dammy</h1>
@@ -146,6 +146,15 @@
       </div>
     </div>
 
+    <div class="main-section" id="random-quote-generator">
+    <div>
+      <div>Quotes: <div id="random-quote-text"></div></div>
+      <div>Author: <div id="random-quote-author"></div></div>
+      <div onclick="getNewRandomQuote()"> new quote</div>
+    </div>
+    </div>
+ </body>
+</html>
     <!-- Global Styles Injection Stylesheet Overrides -->
     <style>
       * {
@@ -182,6 +191,7 @@
     <!-- Script Import Execution Chains (Order Defends Dependencies) -->
     <script src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js "></script>
     <script src="./crapsGame/crapsGame.js"></script>
+    <script src='./randomQuotesGeneraor/randomQuotesGenerator.js'></script>
     <script>
       function MakeDreamComeTrue() {
         document.body.style.background = "url('https://brave.com')";
@@ -189,5 +199,4 @@
         document.body.style.backgroundSize = "cover";
       }
     </script>
-  </body>
-</html>
+ 
