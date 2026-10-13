@@ -1,2 +1,2 @@
-# Samuel-Webaite
+# Samuel-Website
 This is my page showing my profile, background, skills and projects
