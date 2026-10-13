@@ -16,28 +16,18 @@ function getRandomColorCombo() {
   return colorCombos[randomIndex];
 }
 
-function getNewRandomQuote() {
-  fetch("https://www.drivebird.com/api/quotes/random")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then(result => {
-      const colorCombo = getRandomColorCombo();
+async function getNewRandomQuote() {
+  const response = await fetch("https://www.drivebird.com/api/quotes/random")
+  if (!response.ok){
+    alert("There was a problem fetching the quote.");
+  }
+  const Data = await response.json()
+  const quoteText = Data.data[0].quote;
+  const quoteAuthor = Data.data[0].author;
+  document.getElementById("random-quote-text").textContent = quoteText;
+  document.getElementById("random-quote-author").textContent = quoteAuthor;
 
-      document.getElementById("random-quote-generator").style.background =
-        `linear-gradient(to bottom right, ${colorCombo[0]}, ${colorCombo[1]})`;
+  const colorCombo = getRandomColorCombo();
 
-      const quoteText = result.data[0].quote;
-      const quoteAuthor = result.data[0].author;
-
-      document.getElementById("random-quote-text").textContent = quoteText;
-      document.getElementById("random-quote-author").textContent = quoteAuthor;
-    })
-    .catch(error => {
-      alert("There was a problem fetching the quote.");
-      console.error(error);
-    });
+  document.getElementById("random-quote-generator").style.background = `linear-gradient(to bottom right, ${colorCombo[0]}, ${colorCombo[1]})`;
 }
